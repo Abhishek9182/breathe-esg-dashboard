@@ -22,8 +22,7 @@ Tooltip,
 Legend
 );
 
-const API_URL="https://breathe-esg-project-r9pd.onrender.com/api";
-
+const API_URL = "https://breathe-esg-dashboard-1-osno.onrender.com";
 function App(){
 
 const [dashboard,setDashboard]=useState({});
