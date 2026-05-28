@@ -22,7 +22,7 @@ Tooltip,
 Legend
 );
 
-const API_URL = "https://breathe-esg-dashboard-1-osno.onrender.com";
+const API_URL = "https://breathe-esg-dashboard-1-osno.onrender.com/api";
 function App(){
 
 const [dashboard,setDashboard]=useState({});
@@ -40,17 +40,17 @@ loadData();
 
 const loadData=()=>{
 
-axios.get(`${API_URL}/api/dashboard/`)
+axios.get(`${API_URL}/dashboard/`)
 .then((response)=>{
 setDashboard(response.data);
 });
 
-axios.get(`${API_URL}/api/emissions/`)
+axios.get(`${API_URL}/emissions/`)
 .then((response)=>{
 setRecords(response.data);
 });
 
-axios.get(`${API_URL}/api/suspicious/`)
+axios.get(`${API_URL}/suspicious/`)
 .then((response)=>{
 setSuspicious(response.data);
 });
@@ -71,7 +71,7 @@ return;
 try{
 
 await axios.post(
-`${API_URL}/api/emissions/`,
+`${API_URL}/emissions/`,
 {
 category:category,
 scope:scope,
@@ -105,7 +105,7 @@ alert("Error adding record");
 const approveRecord=(id)=>{
 
 axios.patch(
-`${API_URL}/api/emissions/${id}/`,
+`${API_URL}/emissions/${id}/`,
 {
 status:"Approved"
 }
@@ -119,7 +119,7 @@ loadData();
 const deleteRecord=(id)=>{
 
 axios.delete(
-`${API_URL}/api/emissions/${id}/`
+`${API_URL}/emissions/${id}/`
 )
 .then(()=>{
 loadData();
