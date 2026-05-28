@@ -40,17 +40,17 @@ loadData();
 
 const loadData=()=>{
 
-axios.get(`${API_URL}/dashboard/`)
+axios.get(`${API_URL}/api/dashboard/`)
 .then((response)=>{
 setDashboard(response.data);
 });
 
-axios.get(`${API_URL}/emissions/`)
+axios.get(`${API_URL}/api/emissions/`)
 .then((response)=>{
 setRecords(response.data);
 });
 
-axios.get(`${API_URL}/suspicious/`)
+axios.get(`${API_URL}/api/suspicious/`)
 .then((response)=>{
 setSuspicious(response.data);
 });
@@ -71,7 +71,7 @@ return;
 try{
 
 await axios.post(
-`${API_URL}/emissions/`,
+`${API_URL}/api/emissions/`,
 {
 category:category,
 scope:scope,
@@ -105,7 +105,7 @@ alert("Error adding record");
 const approveRecord=(id)=>{
 
 axios.patch(
-`${API_URL}/emissions/${id}/`,
+`${API_URL}/api/emissions/${id}/`,
 {
 status:"Approved"
 }
@@ -119,7 +119,7 @@ loadData();
 const deleteRecord=(id)=>{
 
 axios.delete(
-`${API_URL}/emissions/${id}/`
+`${API_URL}/api/emissions/${id}/`
 )
 .then(()=>{
 loadData();
