@@ -1,5 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from .views import EmissionRecordViewSet
 
 from .views import (
     health,
@@ -24,5 +25,10 @@ urlpatterns = [
     path('upload/', upload_data),
     path('dashboard/', dashboard),
     path('suspicious/', suspicious),
+    # path('', include(router.urls)),
     path('', include(router.urls)),
+    path('emissions/', EmissionRecordViewSet.as_view({
+        'get': 'list',
+        'post': 'create'
+    })),
 ]
