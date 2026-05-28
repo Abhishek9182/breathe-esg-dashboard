@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-7f4m(t6o#ymmbs$6&st@nqst1-o%va(yar3pnoi^r(=fepe3t=
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "breathe-esg-project-r9pd.onrender.com",
+    "breathe-esg-project-1-osno.onrender.com",
     "localhost",
     "127.0.0.1"
 ]
